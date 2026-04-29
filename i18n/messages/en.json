@@ -6,6 +6,8 @@
     "signup": "Sign Up | Premium Barber",
     "booking": "Book Appointment | Premium Barber",
     "myBookings": "My Bookings | Premium Barber",
+    "about": "About Us | Premium Barber",
+    "services": "Our Services | Premium Barber",
     "template": "%s | Premium Barber"
   },
   "HomePage": {
@@ -59,6 +61,39 @@
     "yesLogout": "Yes, Sign Out",
     "cancel": "Cancel",
     "profile": "Profile"
+  },
+  "About": {
+    "title": "Our <span>Legacy</span>",
+    "subtitle": "Crafting premium looks since 2010. Experience the art of grooming in a luxury atmosphere.",
+    "ourStory": "Our Story",
+    "mission": "To provide every gentleman with a confidence-boosting experience through expert grooming and personalized care.",
+    "history": "Starting as a small family shop, we have grown into the city's premier destination for those who value style and hygiene.",
+    "values": {
+      "title": "Core Values",
+      "quality": "Quality",
+      "qualityDesc": "We use only the finest products and precise techniques.",
+      "hygiene": "Hygiene",
+      "hygieneDesc": "Sterilized tools and a clean environment for your safety.",
+      "experience": "Experience",
+      "experienceDesc": "Our master barbers bring years of expertise to every cut."
+    },
+    "team": {
+      "title": "Meet the Artists",
+      "subtitle": "The hands behind the perfection."
+    }
+  },
+  "Services": {
+    "title": "Our <span>Services</span>",
+    "description": "Choose from our wide range of professional grooming services tailored to your style.",
+    "packages": {
+      "title": "Featured Packages",
+      "subtitle": "Exclusive VIP experiences for the modern gentleman."
+    },
+    "cta": {
+      "title": "Ready for a Transformation?",
+      "button": "Book Now"
+    },
+    "duration": "min"
   },
   "Booking": {
     "title": "Reserve Your <span>Spot</span>",
