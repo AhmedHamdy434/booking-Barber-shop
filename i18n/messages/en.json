@@ -1,0 +1,97 @@
+{
+  "Metadata": {
+    "title": "Premium Barber | Expert Grooming",
+    "description": "Experience the art of grooming with our expert barbers. Book your next appointment in seconds.",
+    "login": "Login | Premium Barber",
+    "signup": "Sign Up | Premium Barber",
+    "booking": "Book Appointment | Premium Barber",
+    "myBookings": "My Bookings | Premium Barber",
+    "template": "%s | Premium Barber"
+  },
+  "HomePage": {
+    "title": "Premium Barbershop Booking",
+    "description": "Experience the art of grooming with our expert barbers. Book your next appointment in seconds.",
+    "cta": "Book Now",
+    "servicesTitle": "Our Services",
+    "howItWorks": "How It Works",
+    "heroTitle": "Mastering the Art of <span>Grooming</span>",
+    "features": {
+      "barbers": {
+        "title": "Expert Barbers",
+        "description": "Our barbers are masters of their craft with years of experience."
+      },
+      "booking": {
+        "title": "Easy Booking",
+        "description": "Book your favorite slot in seconds through our premium wizard."
+      },
+      "safety": {
+        "title": "Clean & Safe",
+        "description": "We maintain the highest standards of hygiene and safety."
+      }
+    }
+  },
+  "Nav": {
+    "home": "Home",
+    "booking": "Booking",
+    "myBookings": "My Bookings",
+    "services": "Services",
+    "about": "About"
+  },
+  "Footer": {
+    "rights": "© {year} BarberPro. All rights reserved. Premium Grooming Excellence.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact"
+  },
+  "Auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Full Name",
+    "submit": "Submit",
+    "loginDesc": "Enter your email and password to access your account",
+    "signupDesc": "Create an account to start booking your appointments",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "logout": "Sign Out",
+    "logoutConfirm": "Are you sure you want to sign out?",
+    "yesLogout": "Yes, Sign Out",
+    "cancel": "Cancel",
+    "profile": "Profile"
+  },
+  "Booking": {
+    "title": "Reserve Your <span>Spot</span>",
+    "description": "Select your service and preferred barber to book your appointment in seconds.",
+    "selectService": "Select Service",
+    "selectBarber": "Select Barber",
+    "selectDate": "Select Date",
+    "selectTime": "Select Time",
+    "confirm": "Confirm Booking",
+    "findingSlots": "Finding available slots...",
+    "noSlots": "No slots available for this date. Please try another day.",
+    "summary": {
+      "service": "Service",
+      "barber": "Barber",
+      "date": "Date",
+      "time": "Time"
+    },
+    "expertBarber": "Expert Barber",
+    "back": "Back",
+    "next": "Next",
+    "bookNow": "Book Now"
+  },
+  "MyBookings": {
+    "title": "Your <span>Appointments</span>",
+    "description": "Manage your upcoming and past bookings with ease.",
+    "noBookings": "You don't have any bookings yet.",
+    "cancel": "Cancel",
+    "cancelConfirm": "Are you sure you want to cancel this booking?",
+    "status": {
+      "confirmed": "Confirmed",
+      "pending": "Pending",
+      "cancelled": "Cancelled",
+      "completed": "Completed"
+    }
+  }
+}

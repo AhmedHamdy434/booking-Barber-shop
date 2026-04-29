@@ -1,8 +1,5 @@
-import { supabase } from "@/lib/supabase"
+import { redirect } from "next/navigation";
 
-export default async function Home() {
-  const { data } = await supabase.from("test").select("*")
-  console.log(data)
-
-  return <div>Hello</div>
+export default function RootPage() {
+  redirect("/en");
 }
