@@ -40,9 +40,9 @@ export default async function BookingPage({
         </p>
       </div>
 
-      <Suspense fallback={<BookingWizardSkeleton />}>
+      {/* <Suspense fallback={<BookingWizardSkeleton />}> */}
         <BookingWizard locale={locale} />
-      </Suspense>
+      {/* </Suspense> */}
     </div>
   );
 }

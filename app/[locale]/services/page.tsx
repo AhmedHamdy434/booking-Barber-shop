@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ServiceIntro } from "@/components/services/ServiceIntro";
 import { ServicesList } from "@/components/services/ServicesList";
-import { FeaturedPackages } from "@/components/services/FeaturedPackages";
 import { ServicesCTA } from "@/components/services/ServicesCTA";
 
 export function generateStaticParams() {
@@ -37,13 +36,10 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
       
       <section className="py-24">
         <div className="container mx-auto px-4">
-          <Suspense fallback={<ServicesSkeleton />}>
-            <ServicesList />
-          </Suspense>
+          <ServicesList />
         </div>
       </section>
 
-      <FeaturedPackages />
       <ServicesCTA />
     </div>
   );

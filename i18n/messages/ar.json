@@ -15,6 +15,7 @@
     "description": "استمتع بفن الحلاقة مع حلاقينا الخبراء. احجز موعدك القادم في ثوانٍ.",
     "cta": "احجز الآن",
     "servicesTitle": "خدماتنا",
+    "featuresTitle": "لماذا تختار صالوننا؟",
     "howItWorks": "كيف يعمل",
     "heroTitle": "إتقان فن <span>الحلاقة</span>",
     "features": {
@@ -60,7 +61,10 @@
     "logoutConfirm": "هل أنت متأكد من تسجيل الخروج؟",
     "yesLogout": "نعم، خروج",
     "cancel": "إلغاء",
-    "profile": "الملف الشخصي"
+    "profile": "الملف الشخصي",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "passwordPlaceholder": "أدخل كلمة المرور",
+    "fullNamePlaceholder": "أدخل اسمك بالكامل"
   },
   "About": {
     "title": "إرثنا <span>العريق</span>",
@@ -79,12 +83,14 @@
     },
     "team": {
       "title": "قابل المبدعين",
-      "subtitle": "الأيادي التي تصنع المثالية."
+      "subtitle": "الأيادي التي تصنع المثالية.",
+      "masterBarber": "حلاق محترف"
     }
   },
   "Services": {
     "title": "خدماتنا <span>المتميزة</span>",
     "description": "اختر من بين مجموعة واسعة من خدمات العناية الاحترافية المصممة لتناسب أسلوبك.",
+    "listTitle": "قائمة الخدمات الكاملة",
     "packages": {
       "title": "الباقات المميزة",
       "subtitle": "تجارب VIP حصرية للرجل العصري."

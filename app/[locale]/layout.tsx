@@ -10,7 +10,6 @@ import { ThemeProvider } from "@/components/layout/providers";
 import { Header } from "@/components/shared/header";
 import { Footer } from "@/components/shared/footer";
 import "../globals.css";
-import { Suspense } from "react";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -69,9 +68,7 @@ export default async function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider messages={messages}>
-            <Suspense fallback={null}>
-              <Header locale={locale} />
-            </Suspense>
+            <Header locale={locale} />
             <main className="flex-1 flex flex-col">{children}</main>
             <Footer />
           </NextIntlClientProvider>

@@ -1,8 +1,13 @@
 import { createClient } from "@/lib/supabase/server";
+import { createClient as createClientClient } from "@/lib/supabase/client";
 import "server-only";
+import { cacheLife, cacheTag } from "next/cache";
 
 export async function getActiveServices() {
-  const supabase = await createClient();
+  "use cache"
+  cacheLife("minutes")
+  cacheTag("services")
+  const supabase =  createClientClient();
   const { data, error } = await supabase
     .from("services")
     .select("*")
@@ -13,7 +18,10 @@ export async function getActiveServices() {
 }
 
 export async function getActiveBarbers() {
-  const supabase = await createClient();
+  "use cache"
+  cacheLife("minutes")
+  cacheTag("barbers")
+  const supabase =  createClientClient();
   const { data, error } = await supabase
     .from("barbers")
     .select("*")
@@ -50,7 +58,12 @@ export async function getExistingBookings(barberId: string, date: string) {
 
   if (error) throw error;
 
-  return (data as unknown as { time: string; services: { name: string; duration: number } | null }[]).map((b) => {
+  return (
+    data as unknown as {
+      time: string;
+      services: { name: string; duration: number } | null;
+    }[]
+  ).map((b) => {
     const startTime = b.time;
     const duration = b.services?.duration || 0;
     const serviceName = b.services?.name || "";

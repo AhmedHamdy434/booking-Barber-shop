@@ -1,8 +1,27 @@
 import { getTranslations } from "next-intl/server";
 import { getActiveServices } from "@/lib/queries";
 import { Clock, Scissors } from "lucide-react";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export async function ServicesList() {
+  const t = await getTranslations("Services");
+
+  return (
+    <>
+      <div className="mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight border-l-4 border-primary pl-6">
+          {t("listTitle")}
+        </h2>
+      </div>
+      <Suspense fallback={<ServicesGridSkeleton />}>
+        <ServicesGrid />
+      </Suspense>
+    </>
+  );
+}
+
+async function ServicesGrid() {
   const services = await getActiveServices();
   const t = await getTranslations("Services");
 
@@ -30,6 +49,16 @@ export async function ServicesList() {
             </div>
           </div>
         </div>
+      ))}
+    </div>
+  );
+}
+
+function ServicesGridSkeleton() {
+  return (
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[1, 2, 3, 4, 5, 6].map((i) => (
+        <Skeleton key={i} className="h-64 rounded-3xl" />
       ))}
     </div>
   );

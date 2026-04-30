@@ -11,7 +11,7 @@ export async function OurStory() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1000&auto=format&fit=crop"
+              src="/about2.webp"
               alt="Our Barbershop History"
               fill
               className="object-cover"

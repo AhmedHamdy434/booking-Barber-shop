@@ -15,6 +15,7 @@
     "description": "Experience the art of grooming with our expert barbers. Book your next appointment in seconds.",
     "cta": "Book Now",
     "servicesTitle": "Our Services",
+    "featuresTitle": "Why Choose Our Salon?",
     "howItWorks": "How It Works",
     "heroTitle": "Mastering the Art of <span>Grooming</span>",
     "features": {
@@ -60,7 +61,10 @@
     "logoutConfirm": "Are you sure you want to sign out?",
     "yesLogout": "Yes, Sign Out",
     "cancel": "Cancel",
-    "profile": "Profile"
+    "profile": "Profile",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "fullNamePlaceholder": "Enter your full name"
   },
   "About": {
     "title": "Our <span>Legacy</span>",
@@ -79,12 +83,14 @@
     },
     "team": {
       "title": "Meet the Artists",
-      "subtitle": "The hands behind the perfection."
+      "subtitle": "The hands behind the perfection.",
+      "masterBarber": "Master Barber"
     }
   },
   "Services": {
     "title": "Our <span>Services</span>",
     "description": "Choose from our wide range of professional grooming services tailored to your style.",
+    "listTitle": "Full Service Menu",
     "packages": {
       "title": "Featured Packages",
       "subtitle": "Exclusive VIP experiences for the modern gentleman."

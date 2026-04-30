@@ -45,7 +45,9 @@ export async function Header({ locale }: { locale: string }) {
         <div className="flex items-center gap-4">
           <LanguageToggle />
           <ThemeToggle />
-          <AuthButtonsWrapper locale={locale} />
+          <Suspense fallback={<Skeleton className="w-20 h-8 rounded-full" />}>
+            <AuthButtonsWrapper locale={locale} />
+          </Suspense>
         </div>
       </div>
     </header>
@@ -57,9 +59,5 @@ const AuthButtonsWrapper = async ({ locale }: { locale: string }) => {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  return (
-    <Suspense fallback={<Skeleton className="w-20 h-8 rounded-full" />}>
-      <AuthButtons user={user} locale={locale} />
-    </Suspense>
-  );
+  return <AuthButtons user={user} locale={locale} />;
 };

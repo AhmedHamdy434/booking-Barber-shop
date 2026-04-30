@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { loginSchema, signupSchema } from "@/schemas/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { z } from "zod";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function signIn(_prevState: any, formData: FormData) {
@@ -15,7 +16,8 @@ export async function signIn(_prevState: any, formData: FormData) {
 
   if (!validatedFields.success) {
     return {
-      errors: validatedFields.error.flatten().fieldErrors,
+      errors: z.flattenError(validatedFields.error).fieldErrors,
+      data: { email }
     };
   }
 
@@ -29,6 +31,7 @@ export async function signIn(_prevState: any, formData: FormData) {
   if (error) {
     return {
       message: error.message,
+      data: { email }
     };
   }
 
@@ -47,7 +50,8 @@ export async function signUp(prevState: any, formData: FormData) {
 
   if (!validatedFields.success) {
     return {
-      errors: validatedFields.error.flatten().fieldErrors,
+      errors: z.flattenError(validatedFields.error).fieldErrors,
+      data: { email, fullName }
     };
   }
 
@@ -66,6 +70,7 @@ export async function signUp(prevState: any, formData: FormData) {
   if (error) {
     return {
       message: error.message,
+      data: { email, fullName }
     };
   }
 

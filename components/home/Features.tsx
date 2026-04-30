@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { MotionDiv } from '@/components/shared/motion-elements';
+import { MotionDiv, MotionH2 } from '@/components/shared/motion-elements';
 import { Scissors, Calendar, ShieldCheck } from 'lucide-react';
 
 export function Features() {
@@ -26,6 +26,16 @@ export function Features() {
   return (
     <section className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4 max-w-6xl">
+        <MotionH2 
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-bold text-center mb-16"
+        >
+          {t('featuresTitle')}
+        </MotionH2>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature) => (
             <FeatureCard
