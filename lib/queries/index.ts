@@ -1,5 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
-import { createClient as createClientClient } from "@/lib/supabase/client";
+import { createClient, createPublicClient } from "@/lib/supabase/server";
 import "server-only";
 import { cacheLife, cacheTag } from "next/cache";
 
@@ -7,7 +6,7 @@ export async function getActiveServices() {
   "use cache"
   cacheLife("minutes")
   cacheTag("services")
-  const supabase =  createClientClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("services")
     .select("*")
@@ -21,7 +20,7 @@ export async function getActiveBarbers() {
   "use cache"
   cacheLife("minutes")
   cacheTag("barbers")
-  const supabase =  createClientClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("barbers")
     .select("*")

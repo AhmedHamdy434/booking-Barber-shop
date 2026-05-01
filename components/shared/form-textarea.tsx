@@ -1,44 +1,46 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
-interface AuthInputProps {
+interface FormTextareaProps {
   id: string;
   name: string;
   label: string;
-  type?: string;
   placeholder?: string;
   required?: boolean;
   disabled?: boolean;
   defaultValue?: string;
   error?: string[] | string;
+  rows?: number;
+  className?: string;
 }
 
-export function AuthInput({
+export function FormTextarea({
   id,
   name,
   label,
-  type = "text",
   placeholder,
   required,
   disabled,
   defaultValue,
   error,
-}: AuthInputProps) {
+  rows = 5,
+  className,
+}: FormTextareaProps) {
   return (
     <div className="space-y-2">
       <label htmlFor={id} className="block text-sm font-medium leading-none">
         {label}
       </label>
-      <Input
+      <Textarea
         id={id}
         name={name}
-        type={type}
         placeholder={placeholder}
         required={required}
         disabled={disabled}
         defaultValue={defaultValue}
-        className="text-left rtl:placeholder:text-right"
+        rows={rows}
+        className={className}
       />
       {error && (
         <p className="text-xs text-destructive">

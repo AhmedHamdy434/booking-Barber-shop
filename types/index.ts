@@ -1,18 +1,20 @@
 export interface Service {
   id: string;
   name: string;
+  description?: string;
   price: number;
   duration: number;
   is_active: boolean;
-  description?: string;
+  created_at?: string;
 }
 
 export interface Barber {
   id: string;
   name: string;
+  bio?: string;
+  image_url?: string;
   is_active: boolean;
-  specialty?: string;
-  avatar_url?: string;
+  created_at?: string;
 }
 
 export interface Booking {

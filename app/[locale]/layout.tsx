@@ -9,6 +9,7 @@ import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/layout/providers";
 import { Header } from "@/components/shared/header";
 import { Footer } from "@/components/shared/footer";
+import { Toaster } from "@/components/ui/sonner";
 import "../globals.css";
 
 const cairo = Cairo({
@@ -77,6 +78,7 @@ export default async function RootLayout({
             <Header locale={locale} />
             <main className="flex-1 flex flex-col">{children}</main>
             <Footer />
+            <Toaster />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

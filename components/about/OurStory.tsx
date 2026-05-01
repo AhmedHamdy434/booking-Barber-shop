@@ -17,8 +17,8 @@ export async function OurStory() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
-            <div className="absolute bottom-8 left-8">
-              <p className="text-white font-bold text-4xl">Est. 2010</p>
+            <div className="absolute bottom-8 inset-e-8">
+              <p className="text-white font-bold text-4xl">Est. 2013</p>
             </div>
           </div>
           <div className="space-y-6">

@@ -8,23 +8,23 @@ export async function ContactSection() {
   const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6 text-primary" />,
-      title: "Our Location",
-      value: "123 Grooming St, Luxury City, 54321",
+      title: t("location"),
+      value: t("address"),
     },
     {
       icon: <Phone className="w-6 h-6 text-primary" />,
-      title: "Phone Number",
-      value: "+1 (234) 567-890",
+      title: t("phone"),
+      value: "+2 01120713673",
     },
     {
       icon: <Mail className="w-6 h-6 text-primary" />,
-      title: "Email Address",
-      value: "hello@goldtan.com",
+      title: t("emailLabel"),
+      value: "ahmedhamdy43411@gmail.com",
     },
     {
       icon: <Clock className="w-6 h-6 text-primary" />,
-      title: "Working Hours",
-      value: "Mon - Sat: 9:00 AM - 9:00 PM",
+      title: t("workingHours"),
+      value: t("workingHoursValue"),
     },
   ];
 

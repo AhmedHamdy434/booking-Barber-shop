@@ -1,39 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useEffect } from "react";
 import { Link } from "@/i18n/routing";
 import { Menu, X, Scissors } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useClickOutside } from "@/hooks/use-click-outside";
 
 type NavlinkType = { href: string; label: string };
 
-export function MobileNav({ navlinks, locale, children }: { navlinks: NavlinkType[], locale: string, children?: React.ReactNode }) {
+export function MobileNav({ navlinks, children }: { navlinks: NavlinkType[], children?: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const isRtl = locale === "ar";
 
-  // --- الحل هنا ---
-  // نقوم بتخزين المسار السابق لمقارنته
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useClickOutside(navRef, () => {
+    if (isOpen) setIsOpen(false);
+  });
+
+
   const [prevPathname, setPrevPathname] = useState(pathname);
 
-  // إذا تغير المسار، نحدث الحالة فوراً أثناء الرندر
   if (pathname !== prevPathname) {
     setPrevPathname(pathname);
     setIsOpen(false);
   }
   // ----------------
 
-  // هذا الـ Effect سليم لأنه يتعامل مع نظام خارجي (الـ DOM) وليس مع State داخلية
   useEffect(() => {
     if (isOpen) {
       document.documentElement.style.overflow = "hidden";
     } else {
       document.documentElement.style.overflow = "";
     }
-    // تنظيف (Cleanup) للتأكد من عودة التمرير عند حذف المكون
     return () => { document.documentElement.style.overflow = ""; };
   }, [isOpen]);
 
@@ -55,7 +57,8 @@ export function MobileNav({ navlinks, locale, children }: { navlinks: NavlinkTyp
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-[120] bg-background/95 backdrop-blur-xl flex flex-col h-[100dvh]"
+            ref={navRef}
+            className="fixed inset-e-0 top-0 z-120 bg-background/95 backdrop-blur-xl flex flex-col w-full rounded-b-2xl shadow-2xl"
           >
             {/* Header inside menu */}
             <div className="h-16 px-4 flex items-center justify-between border-b border-border/50">
@@ -71,8 +74,8 @@ export function MobileNav({ navlinks, locale, children }: { navlinks: NavlinkTyp
             </div>
 
             {/* Navigation Links */}
-            <div className="flex-1 overflow-y-auto py-8 px-4 flex flex-col gap-6">
-              <nav className="flex flex-col gap-3">
+            <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
+              <nav className="flex flex-col gap-2">
                 {navlinks.map((link) => (
                   <Link
                     key={link.href}

@@ -28,7 +28,7 @@ export async function Header({ locale }: { locale: string }) {
           <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
             <Scissors className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
           </div>
-          <span className="font-black text-xl tracking-tighter uppercase hidden xs:inline-block">
+          <span className="font-black text-xl tracking-tighter uppercase hidden sm:inline-block">
             Gold<span className="text-primary group-hover:text-foreground transition-colors">Tan</span>
           </span>
         </Link>
@@ -56,12 +56,11 @@ export async function Header({ locale }: { locale: string }) {
             <AuthButtonsWrapper locale={locale} />
           </Suspense>
 
-          <MobileNav navlinks={navlinks} locale={locale}>
+          <MobileNav navlinks={navlinks}>
              {/* تمرير الـ Toggles للموبايل */}
-             <div className="flex items-center gap-4 mt-4 p-4 bg-muted/50 rounded-2xl">
+             <div className="flex items-center justify-between gap-4 px-4 py-2 bg-muted/50 rounded-2xl">
                 <ThemeToggle />
                 <LanguageToggle />
-                <span className="text-sm font-medium">Appearance & Language</span>
              </div>
           </MobileNav>
         </div>

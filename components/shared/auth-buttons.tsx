@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing";
-import { User, LogOut, Calendar, Settings, ChevronDown } from "lucide-react";
+import { User, LogOut, Calendar, ChevronDown } from "lucide-react";
 import { type User as SupabaseUser } from "@supabase/supabase-js";
 import { AnimatePresence } from "framer-motion";
 import { MotionDiv } from "./motion-elements";
@@ -37,9 +37,9 @@ export function AuthButtons({ user, locale }: AuthButtonsProps) {
   if (user) {
     return (
       <div className="relative" ref={dropdownRef}>
-        <Button 
-          variant="ghost" 
-          size="sm" 
+        <Button
+          variant="ghost"
+          size="sm"
           className="gap-2 rounded-full border border-border/50 pr-4 hover:bg-primary/10 hover:text-primary transition-all duration-300 active:scale-95"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -47,9 +47,11 @@ export function AuthButtons({ user, locale }: AuthButtonsProps) {
             <User className="w-3.5 h-3.5 text-primary" />
           </div>
           <span className="max-w-[100px] truncate text-xs font-bold uppercase tracking-tight">
-            {user.user_metadata?.full_name?.split(' ')[0] || tAuth('profile')}
+            {user.user_metadata?.full_name?.split(" ")[0] || tAuth("profile")}
           </span>
-          <ChevronDown className={`w-3 h-3 text-muted-foreground transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+          <ChevronDown
+            className={`w-3 h-3 text-muted-foreground transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+          />
         </Button>
 
         <AnimatePresence>
@@ -61,7 +63,9 @@ export function AuthButtons({ user, locale }: AuthButtonsProps) {
               className="absolute inset-e-0 mt-2 w-56 origin-top-right rounded-2xl border bg-card p-2 shadow-xl ring-1 ring-black/5 focus:outline-none z-50"
             >
               <div className="px-3 py-2 border-b mb-1">
-                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{tAuth('profile')}</p>
+                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                  {tAuth("profile")}
+                </p>
                 <p className="text-sm font-bold truncate">{user.email}</p>
               </div>
 
@@ -74,13 +78,13 @@ export function AuthButtons({ user, locale }: AuthButtonsProps) {
                   <Calendar className="w-4 h-4" />
                   {tNav("myBookings")}
                 </Link>
-                <button
+                {/* <button
                   disabled
                   className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-xl text-muted-foreground/50 cursor-not-allowed"
                 >
                   <Settings className="w-4 h-4" />
                   {tAuth("profile")}
-                </button>
+                </button> */}
               </div>
 
               <div className="mt-1 pt-1 border-t">
@@ -115,10 +119,22 @@ export function AuthButtons({ user, locale }: AuthButtonsProps) {
 
   return (
     <div className="flex items-center gap-2">
-      <Button variant="ghost" size="sm" asChild className="hidden sm:inline-flex" aria-label={tAuth("login")}>
+      <Button
+        variant="ghost"
+        size="sm"
+        asChild
+        className="hidden sm:inline-flex"
+        aria-label={tAuth("login")}
+      >
         <Link href="/login">{tAuth("login")}</Link>
       </Button>
-      <Button variant="gold" size="sm" asChild className="rounded-full px-5" aria-label={tAuth("signup")}>
+      <Button
+        variant="gold"
+        size="sm"
+        asChild
+        className="rounded-full px-5"
+        aria-label={tAuth("signup")}
+      >
         <Link href="/signup">{tAuth("signup")}</Link>
       </Button>
     </div>

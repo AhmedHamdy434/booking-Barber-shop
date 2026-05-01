@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { useTranslations } from "next-intl";
 import { signUp } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
-import { AuthInput } from "./auth-input";
+import { FormInput } from "@/components/shared/form-input";
 import {
   Card,
   CardContent,
@@ -34,7 +34,7 @@ export function SignupForm({ locale }: { locale: string }) {
       <form action={action}>
         <input type="hidden" name="locale" value={locale} />
         <CardContent className="space-y-4">
-          <AuthInput
+          <FormInput
             id="fullName"
             name="fullName"
             label={t("fullName")}
@@ -44,7 +44,7 @@ export function SignupForm({ locale }: { locale: string }) {
             defaultValue={state?.data?.fullName}
             error={state?.errors?.fullName}
           />
-          <AuthInput
+          <FormInput
             id="email"
             name="email"
             type="email"
@@ -55,7 +55,7 @@ export function SignupForm({ locale }: { locale: string }) {
             defaultValue={state?.data?.email}
             error={state?.errors?.email}
           />
-          <AuthInput
+          <FormInput
             id="password"
             name="password"
             type="password"

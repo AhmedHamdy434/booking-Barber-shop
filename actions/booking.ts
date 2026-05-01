@@ -2,7 +2,6 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 import { z } from "zod";
 import { generateSlots } from "@/lib/core/slots";
 import { getBarberAvailability, getExistingBookings } from "@/lib/queries";
@@ -58,13 +57,13 @@ export async function createBooking(prevState: any, formData: FormData) {
   }
 
   // 2. Calculate end time
-  const [hours, minutes] = startTime.split(":").map(Number);
-  const startTotalMinutes = hours * 60 + minutes;
-  const endTotalMinutes = startTotalMinutes + service.duration;
+  // const [hours, minutes] = startTime.split(":").map(Number);
+  // const startTotalMinutes = hours * 60 + minutes;
+  // const endTotalMinutes = startTotalMinutes + service.duration;
 
-  const endHours = Math.floor(endTotalMinutes / 60);
-  const endMins = endTotalMinutes % 60;
-  const endTime = `${endHours.toString().padStart(2, "0")}:${endMins.toString().padStart(2, "0")}`;
+  // const endHours = Math.floor(endTotalMinutes / 60);
+  // const endMins = endTotalMinutes % 60;
+  // const endTime = `${endHours.toString().padStart(2, "0")}:${endMins.toString().padStart(2, "0")}`;
 
   // 3. Create booking
   const { error: bookingError } = await supabase
@@ -91,7 +90,7 @@ export async function createBooking(prevState: any, formData: FormData) {
   }
 
   revalidatePath(`/${locale}/my-bookings`);
-  redirect(`/${locale}/my-bookings?success=true`);
+  return { success: true };
 }
 
 
@@ -128,5 +127,9 @@ export async function getDaySchedule(
   return {
     available,
     busy: existingBookings || [],
+    workingHours: {
+      start: availability.start_time,
+      end: availability.end_time,
+    },
   };
 }

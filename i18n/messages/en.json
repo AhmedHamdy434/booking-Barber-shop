@@ -53,6 +53,12 @@
     "heroDesc": "We're here to help and answer any question you might have. We look forward to hearing from you.",
     "formTitle": "Send us a Message",
     "formDesc": "Fill out the form below and our team will get back to you within 24 hours.",
+    "location": "Our Location",
+    "address": "123 Grooming St, Luxury City, 54321",
+    "phone": "Phone Number",
+    "emailLabel": "Email Address",
+    "workingHours": "Working Hours",
+    "workingHoursValue": "Sat - Thu: 9:00 AM - 10:00 PM",
     "name": "Full Name",
     "namePlaceholder": "Enter your full name",
     "email": "Email Address",
@@ -63,6 +69,7 @@
     "messagePlaceholder": "How can we help you?",
     "submit": "Send Message",
     "success": "Your message has been sent successfully!",
+    "successDesc": "Our team will get back to you within 24 hours.",
     "error": "Something went wrong. Please try again."
   },
   "Auth": {
@@ -135,6 +142,8 @@
     "selectDate": "Select Date",
     "selectTime": "Select Time",
     "confirm": "Confirm Booking",
+    "success": "Booking Successful!",
+    "successDesc": "Your appointment has been reserved. See you soon!",
     "findingSlots": "Finding available slots...",
     "noSlots": "No slots available for this date. Please try another day.",
     "summary": {
@@ -146,7 +155,12 @@
     "expertBarber": "Expert Barber",
     "back": "Back",
     "next": "Next",
-    "bookNow": "Book Now"
+    "bookNow": "Book Now",
+    "shiftHours": "Shift Hours",
+    "manualTime": "Time Input",
+    "availableSlots": "Available Slots",
+    "busySlots": "Booked Slots (Busy)",
+    "alreadyBooked": "Already Booked"
   },
   "MyBookings": {
     "title": "Your <span>Appointments</span>",

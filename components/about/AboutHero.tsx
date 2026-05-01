@@ -21,7 +21,7 @@ export async function AboutHero() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-background/10" />
+        <div className="absolute inset-0 bg-black/45 dark:bg-black/60" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -31,12 +31,12 @@ export async function AboutHero() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="max-w-4xl"
         >
-          <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter uppercase leading-none">
+          <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter uppercase leading-none text-white">
             {t.rich("title", {
               span: (chunks) => <span className="text-primary italic">{chunks}</span>,
             })}
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/90 max-w-2xl leading-relaxed font-medium">
+          <p className="text-xl md:text-2xl text-white/90 max-w-2xl leading-relaxed font-medium">
             {t("subtitle")}
           </p>
         </MotionDiv>
