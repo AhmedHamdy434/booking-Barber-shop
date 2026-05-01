@@ -8,46 +8,62 @@ import { getTranslations } from "next-intl/server";
 import { ThemeToggle } from "./theme-toggle";
 import { Suspense } from "react";
 import { Skeleton } from "../ui/skeleton";
+import { MobileNav } from "./mobile-nav";
 
 export async function Header({ locale }: { locale: string }) {
   const tNav = await getTranslations("Nav");
 
   const navlinks = [
     { href: "/", label: tNav("home") },
-    { href: "/services", label: tNav("services") },
     { href: "/about", label: tNav("about") },
     { href: "/booking", label: tNav("booking") },
+    { href: "/contact", label: tNav("contact") },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-100 w-full border-b bg-background/80 backdrop-blur-xl saturate-150">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center gap-2 group"
-          aria-label="Home"
-        >
-          <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors ring-1 ring-primary/20">
-            <Scissors className="w-6 h-6 text-primary" />
+        {/* Logo Side */}
+        <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="Home">
+          <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
+            <Scissors className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
           </div>
-          <span className="text-xl font-black tracking-tighter uppercase">
-            Gold<span className="text-primary italic">Tan</span>
+          <span className="font-black text-xl tracking-tighter uppercase hidden xs:inline-block">
+            Gold<span className="text-primary group-hover:text-foreground transition-colors">Tan</span>
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop Navigation - Optimized spacing */}
+        <nav className="hidden lg:flex items-center gap-1 bg-muted/50 p-1 rounded-full border border-border/40">
           {navlinks.map((link) => (
-            <NavLink key={link.href} href={link.href}>
+            <NavLink key={link.href} href={link.href} className="px-5 py-1.5 text-sm font-medium">
               {link.label}
             </NavLink>
           ))}
         </nav>
-        <div className="flex items-center gap-4">
-          <LanguageToggle />
-          <ThemeToggle />
-          <Suspense fallback={<Skeleton className="w-20 h-8 rounded-full" />}>
+
+        {/* Actions Side */}
+        <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
+            <LanguageToggle />
+          </div>
+          
+          <div className="h-6 w-px bg-border/60 mx-1 hidden md:block" />
+          
+          {/* تأكد أن الـ Skeleton مطابق تماماً لحجم الأزرار */}
+          <Suspense fallback={<Skeleton className="w-[100px] h-9 rounded-full" />}>
             <AuthButtonsWrapper locale={locale} />
           </Suspense>
+
+          <MobileNav navlinks={navlinks} locale={locale}>
+             {/* تمرير الـ Toggles للموبايل */}
+             <div className="flex items-center gap-4 mt-4 p-4 bg-muted/50 rounded-2xl">
+                <ThemeToggle />
+                <LanguageToggle />
+                <span className="text-sm font-medium">Appearance & Language</span>
+             </div>
+          </MobileNav>
         </div>
       </div>
     </header>

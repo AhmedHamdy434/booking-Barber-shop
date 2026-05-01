@@ -66,7 +66,13 @@ export default async function RootLayout({
         className="min-h-full flex flex-col bg-background text-foreground font-cairo"
         suppressHydrationWarning
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          storageKey="goldtan-theme"
+          disableTransitionOnChange
+        >
           <NextIntlClientProvider messages={messages}>
             <Header locale={locale} />
             <main className="flex-1 flex flex-col">{children}</main>

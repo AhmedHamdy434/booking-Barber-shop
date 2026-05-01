@@ -23,14 +23,14 @@ export function Hero({ locale }: { locale: string }) {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero.webp"
+          src="/homehero.webp"
           alt="Hero Background"
           fill
           priority
           fetchPriority="high"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-background/20" />
+        <div className="absolute inset-0 bg-black/45 dark:bg-black/60" />
       </div>
 
       <div className="container mx-auto max-w-6xl relative text-center">
@@ -42,12 +42,12 @@ export function Hero({ locale }: { locale: string }) {
           <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase text-primary bg-primary/10 backdrop-blur-md rounded-full border border-primary/20">
             {t("title")}
           </span>
-          <MotionH1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight">
+          <MotionH1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight text-white">
             {t.rich('heroTitle', {
               span: (chunks) => <span className="text-primary italic">{chunks}</span>
             })}
           </MotionH1>
-          <MotionP className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <MotionP className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
             {t('description')}
           </MotionP>
 
@@ -67,10 +67,13 @@ export function Hero({ locale }: { locale: string }) {
             <Button
               size="lg"
               variant="outline"
-              className="px-8 h-12 rounded-full font-bold border-primary/20 hover:bg-primary/5"
+              className="px-8 h-12 rounded-full font-bold border-primary/20 hover:bg-background/80 hover:text-foreground"
+              asChild
               aria-label={t('servicesTitle')}
             >
-              {t('servicesTitle')}
+              <Link href="/services">
+                {t('servicesTitle')}
+              </Link>
             </Button>
           </div>
         </MotionDiv>

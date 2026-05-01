@@ -38,6 +38,7 @@ export function AuthInput({
         required={required}
         disabled={disabled}
         defaultValue={defaultValue}
+        className="text-left rtl:placeholder:text-right"
       />
       {error && (
         <p className="text-xs text-destructive">

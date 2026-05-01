@@ -1,10 +1,11 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { loginSchema, signupSchema } from "@/schemas/auth";
+import { getLoginSchema, getSignupSchema } from "@/schemas/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
+import { getTranslations } from "next-intl/server";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function signIn(_prevState: any, formData: FormData) {
@@ -12,6 +13,8 @@ export async function signIn(_prevState: any, formData: FormData) {
   const password = formData.get("password") as string;
   const locale = (formData.get("locale") as string) || "en";
 
+  const t = await getTranslations({ locale, namespace: "Auth" });
+  const loginSchema = getLoginSchema(t);
   const validatedFields = loginSchema.safeParse({ email, password });
 
   if (!validatedFields.success) {
@@ -46,6 +49,8 @@ export async function signUp(prevState: any, formData: FormData) {
   const fullName = formData.get("fullName") as string;
   const locale = (formData.get("locale") as string) || "en";
 
+  const t = await getTranslations({ locale, namespace: "Auth" });
+  const signupSchema = getSignupSchema(t);
   const validatedFields = signupSchema.safeParse({ email, password, fullName });
 
   if (!validatedFields.success) {
@@ -76,6 +81,24 @@ export async function signUp(prevState: any, formData: FormData) {
 
   revalidatePath("/", "layout");
   redirect(`/${locale}`);
+}
+
+export async function signInWithGoogle(origin: string, locale: string) {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: `${origin}/${locale}/auth/callback`,
+    },
+  });
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  if (data.url) {
+    redirect(data.url);
+  }
 }
 
 export async function signOut(locale: string = "en") {

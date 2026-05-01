@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/card";
 import { Link } from "@/i18n/routing";
 import { Loader2 } from "lucide-react";
+import { SocialAuth } from "./social-auth";
 
 export function SignupForm({ locale }: { locale: string }) {
   const t = useTranslations("Auth");
@@ -65,10 +66,11 @@ export function SignupForm({ locale }: { locale: string }) {
             error={state?.errors?.password}
           />
           {state?.message && (
-            <p className="text-sm text-center text-destructive bg-destructive/10 p-2 rounded">
+            <p className="text-sm text-center text-destructive! bg-destructive/10 p-2 rounded">
               {state.message}
             </p>
           )}
+          <SocialAuth locale={locale} />
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
           <Button

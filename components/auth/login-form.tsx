@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useTransition } from "react";
+import { useActionState } from "react";
 import { useTranslations } from "next-intl";
 import { signIn } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/card";
 import { Link } from "@/i18n/routing";
 import { Loader2 } from "lucide-react";
+import { SocialAuth } from "./social-auth";
 
 export function LoginForm({ locale }: { locale: string }) {
   const t = useTranslations("Auth");
@@ -59,6 +60,7 @@ export function LoginForm({ locale }: { locale: string }) {
               {state.message}
             </p>
           )}
+          <SocialAuth locale={locale} />
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
           <Button
