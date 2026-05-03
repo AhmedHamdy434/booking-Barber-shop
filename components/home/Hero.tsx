@@ -71,7 +71,7 @@ export function Hero({ locale }: { locale: string }) {
               asChild
               aria-label={t('servicesTitle')}
             >
-              <Link href="/services">
+              <Link href="/about">
                 {t('servicesTitle')}
               </Link>
             </Button>

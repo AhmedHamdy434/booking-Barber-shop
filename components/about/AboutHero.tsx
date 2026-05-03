@@ -19,6 +19,7 @@ export async function AboutHero() {
           alt="About Us Background"
           fill
           priority
+          fetchPriority="high"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/45 dark:bg-black/60" />

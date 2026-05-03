@@ -12,13 +12,13 @@ export async function OurStory() {
           <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
             <Image
               src="/about2.webp"
-              alt="Our Barbershop History"
+              alt={t("historyAlt")}
               fill
               className="object-cover"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
             <div className="absolute bottom-8 inset-e-8">
-              <p className="text-white font-bold text-4xl">Est. 2013</p>
+              <p className="text-white font-bold text-4xl">{t("established")}</p>
             </div>
           </div>
           <div className="space-y-6">
@@ -35,11 +35,11 @@ export async function OurStory() {
             <div className="grid grid-cols-2 gap-8 pt-6">
               <div>
                 <p className="text-4xl font-black text-primary">13+</p>
-                <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Years of Experience</p>
+                <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">{t("experienceYears")}</p>
               </div>
               <div>
                 <p className="text-4xl font-black text-primary">25k+</p>
-                <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Happy Clients</p>
+                <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">{t("happyClients")}</p>
               </div>
             </div>
           </div>

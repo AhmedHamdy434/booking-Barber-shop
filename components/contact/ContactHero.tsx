@@ -14,6 +14,7 @@ export async function ContactHero() {
           alt="Contact Hero Background"
           fill
           priority
+          fetchPriority="high"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/50 dark:bg-black/70" />

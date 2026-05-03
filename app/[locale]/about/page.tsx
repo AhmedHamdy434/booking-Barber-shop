@@ -4,7 +4,6 @@ import { AboutHero } from "@/components/about/AboutHero";
 import { OurStory } from "@/components/about/OurStory";
 import { CoreValues } from "@/components/about/CoreValues";
 import { TeamGrid } from "@/components/about/TeamGrid";
-import { ServicesList } from "@/components/about/ServicesList";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -33,11 +32,6 @@ export default async function AboutPage({
       <AboutHero />
       <CoreValues />
       <OurStory />
-        <section className="py-24">
-        <div className="container mx-auto px-4">
-          <ServicesList />
-        </div>
-      </section>
       <TeamGrid />
     </div>
   );
