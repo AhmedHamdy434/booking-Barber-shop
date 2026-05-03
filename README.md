@@ -30,7 +30,7 @@ The powerful booking logic found in the mobile app is flawlessly adapted for bot
 ## 🛠️ Tech Stack & Architecture
 
 This website is built adhering to the absolute bleeding-edge of web performance standards:
-- **Framework**: [Next.js 15 (App Router)](https://nextjs.org/), leveraging aggressive `cacheComponents` directives for maximum speed.
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/), leveraging aggressive `cacheComponents` directives for maximum speed.
 - **Rendering Strategy**: Employs the **"Static Shell + Dynamic Islands"** architecture. The structural shell of the page is statically rendered for an instant Time To First Byte (TTFB), while dynamic data (like available booking slots) is fetched client-side inside React `<Suspense>` boundaries to prevent blocking the initial render.
 - **Styling & Animation**: Utilizes `Tailwind CSS v4` for utility-first styling, paired with `Framer Motion` for silky-smooth scroll effects and micro-animations.
 - **Localization Engine**: Uses [next-intl](https://next-intl-docs.vercel.app/) to efficiently parse and inject translations directly within Server Components.
