@@ -132,7 +132,8 @@
       "title": "Ready for a Transformation?",
       "button": "Book Now"
     },
-    "duration": "min"
+    "duration": "min",
+    "currency": "EGP"
   },
   "Booking": {
     "title": "Reserve Your <span>Spot</span>",

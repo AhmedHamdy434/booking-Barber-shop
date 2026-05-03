@@ -132,7 +132,8 @@
       "title": "جاهز للتغيير؟",
       "button": "احجز الآن"
     },
-    "duration": "دقيقة"
+    "duration": "دقيقة",
+    "currency": "ج.م"
   },
   "Booking": {
     "title": "احجز <span>مكانك</span>",

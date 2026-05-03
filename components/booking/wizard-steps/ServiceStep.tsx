@@ -13,12 +13,12 @@ export function ServiceStep({ services, selectedId, onSelect }: ServiceStepProps
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {services.map(s => (
-        <SelectionCard 
+        <SelectionCard
           key={s.id}
           selected={selectedId === s.id}
           onClick={() => onSelect(s.id)}
           title={s.name}
-          subtitle={`${s.duration} ${t("duration")} • $${s.price}`}
+          subtitle={`${s.duration} ${t("duration")} • ${s.price} ${t("currency")}`}
         />
       ))}
     </div>

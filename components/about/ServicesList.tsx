@@ -40,7 +40,7 @@ async function ServicesGrid() {
                 {service.duration} {t("duration")}
               </div>
               <div className="text-2xl font-black text-primary">
-                ${service.price}
+                {service.price} {t("currency")}
               </div>
             </div>
           </div>
