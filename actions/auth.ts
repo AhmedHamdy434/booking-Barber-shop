@@ -61,6 +61,7 @@ export async function signUp(prevState: any, formData: FormData) {
   }
 
   const supabase = await createClient();
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   const { error } = await supabase.auth.signUp({
     email,
@@ -69,6 +70,7 @@ export async function signUp(prevState: any, formData: FormData) {
       data: {
         full_name: fullName,
       },
+      emailRedirectTo: `${siteUrl}/${locale}/auth/callback`,
     },
   });
 
@@ -85,10 +87,12 @@ export async function signUp(prevState: any, formData: FormData) {
 
 export async function signInWithGoogle(origin: string, locale: string) {
   const supabase = await createClient();
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: `${origin}/${locale}/auth/callback`,
+      redirectTo: `${siteUrl}/${locale}/auth/callback`,
     },
   });
 

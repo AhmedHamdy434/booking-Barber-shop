@@ -17,19 +17,12 @@ export async function GET(
     const { error } = await supabase.auth.exchangeCodeForSession(code)
     
     if (!error) {
-      const forwardedHost = request.headers.get('x-forwarded-host')
-      const isLocalEnv = process.env.NODE_ENV === 'development'
-      
-      if (isLocalEnv) {
-        return NextResponse.redirect(`${origin}${next}`)
-      } else if (forwardedHost) {
-        return NextResponse.redirect(`https://${forwardedHost}${next}`)
-      } else {
-        return NextResponse.redirect(`${origin}${next}`)
-      }
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+      return NextResponse.redirect(`${siteUrl}${next}`)
     }
   }
 
   // return the user to an error page with instructions
-  return NextResponse.redirect(`${origin}/${locale}/auth/auth-code-error`)
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  return NextResponse.redirect(`${siteUrl}/${locale}/auth/auth-code-error`)
 }
