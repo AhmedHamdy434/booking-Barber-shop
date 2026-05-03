@@ -11,7 +11,7 @@ export function LanguageToggle() {
 
   const toggleLocale = () => {
     const nextLocale = locale === "en" ? "ar" : "en";
-    router.replace(pathname, { locale: nextLocale });
+    router.push(pathname, { locale: nextLocale });
   };
 
   return (
