@@ -36,7 +36,7 @@ export function SocialAuth({locale}:{locale: string}) {
         variant="outline"
         type="button"
         disabled={isLoading}
-        className="w-full h-11 border-2 hover:bg-muted/50 transition-all gap-3"
+        className="w-full h-11 border-2 hover:bg-background hover:text-foreground transition-all gap-3 cursor-pointer"
         onClick={handleGoogleLogin}
       >
         {isLoading ? (

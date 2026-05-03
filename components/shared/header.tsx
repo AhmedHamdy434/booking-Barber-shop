@@ -51,10 +51,11 @@ export async function Header({ locale }: { locale: string }) {
           
           <div className="h-6 w-px bg-border/60 mx-1 hidden md:block" />
           
-          {/* تأكد أن الـ Skeleton مطابق تماماً لحجم الأزرار */}
-          <Suspense fallback={<Skeleton className="w-[100px] h-9 rounded-full" />}>
-            <AuthButtonsWrapper locale={locale} />
-          </Suspense>
+          <div className="w-[170px] flex justify-end">
+            <Suspense fallback={<Skeleton className="w-[130px] h-9 rounded-full" />}>
+              <AuthButtonsWrapper locale={locale} />
+            </Suspense>
+          </div>
 
           <MobileNav navlinks={navlinks}>
              {/* تمرير الـ Toggles للموبايل */}
