@@ -13,7 +13,7 @@ export function Footer() {
               <Scissors className="w-5 h-5" />
             </div>
             <span className="font-bold text-xl tracking-tight">
-              Barber<span className="text-primary">Pro</span>
+              Gold<span className="text-primary">Tan</span>
             </span>
           </div>
           
